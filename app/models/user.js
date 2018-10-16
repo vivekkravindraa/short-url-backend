@@ -90,8 +90,8 @@ userSchema.statics.findByEmailAndPassword = function(email, password) {
             return Promise.reject('invalid email');
         } 
         return bcrypt.compare(password, user.password)
-        .then((res) => {
-            if(res) {
+        .then((result) => {
+            if(result) {
                 return user;
             } else {
                 return Promise.reject('invalid password');  // if password is incorrect
